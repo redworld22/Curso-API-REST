@@ -1,0 +1,63 @@
+body{
+    background-color: lightskyblue;
+    width: 100%;
+    margin: 0;
+}
+
+h1{
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#randomMichis{
+    width: 100%;
+}
+
+#randomMichis h2{
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#change{
+    display: block;
+    width: 100px;
+    height: 32px;
+    margin: 16px auto;
+    border: none;
+    border-radius: 8px;
+    font-size: small;
+    font-weight:500;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+#cardsMichis{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+#cardsMichis article{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-bottom: 24px;
+}
+
+#cardsMichis article img{
+    width: 150px;
+    margin: 4px auto;
+    border-radius: 8px;
+}
+
+#cardsMichis article button{
+    width: 150px;
+    height: 30px;
+    margin: 4px auto;
+    border-radius: 8px;
+    border: none;
+}
