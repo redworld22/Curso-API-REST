@@ -1,14 +1,13 @@
+const API = axios.create({
+    baseURL: 'https://api.thecatapi.com/v1',
+    headers: {'X-API-KEY': 'live_2ubfKsH68fwLGlJAgC9uj4T8nKvF7Q4WXZdxrNPUmEKhgrVOeSFxyQ4e6ETwnI32'}
+});
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=4';
-
 const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
-
 const API_URL_FAVORITES_DELETE = (id)=> `https://api.thecatapi.com/v1/favourites/${id}`;
-
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
-
 const btn = document.getElementById('change');
 btn.addEventListener('click', loadRandomMichis);
-
 const spanError = document.querySelector('#error');
 
 async function loadRandomMichis(){
@@ -83,23 +82,27 @@ async function loadFavoritesMichis(){
 }
 
 async function saveFavoritesMichis(id){
-    const res = await fetch(API_URL_FAVORITES, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'X-API-KEY': 'live_2ubfKsH68fwLGlJAgC9uj4T8nKvF7Q4WXZdxrNPUmEKhgrVOeSFxyQ4e6ETwnI32'
-        },
-        body: JSON.stringify({
-            image_id: id
-        })
-    })
-    const data = await res.text();
-    console.log('Save');
-    console.log(data);
-    console.log(res);
+    const {data, status} = await API.post('/favourites', {
+        image_id: id
+    });
     
-    if(res.status !== 200){
-        spanError.innerHTML = "Ha ocurrido un error " + res.status + data.message
+    // const res = await fetch(API_URL_FAVORITES, {
+    //     method: "POST",
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'X-API-KEY': 'live_2ubfKsH68fwLGlJAgC9uj4T8nKvF7Q4WXZdxrNPUmEKhgrVOeSFxyQ4e6ETwnI32'
+    //     },
+    //     body: JSON.stringify({
+    //         image_id: id
+    //     })
+    // })
+    // const data = await res.text();
+     console.log('Save');
+     console.log(data);
+    // console.log(res);
+    
+    if(status !== 200){
+        spanError.innerHTML = "Ha ocurrido un error " + status + data.message
     } else {
         console.log('Salvado en Favoritos');
         loadFavoritesMichis();
