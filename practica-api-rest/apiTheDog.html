@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API_DOG</title>
+</head>
+<body>
+    <h1>Galería de Firulais</h1>
+    <span id="error"></span>
+
+    <section id="randomDogs">
+        <h2>Firulais aleatorios</h2>
+        <article>
+            <img id="imageRandom" width="200" alt="Imagen random de perrito">
+            <button id="saveDog1">Guardar Firulais en Favoritos</button>
+        </article>
+        <article></article>
+            <img id="imageRandom2" width="200" alt="Imagen random de perrito">
+            <button id="saveDog2">Guardar Firulais en Favoritos</button>
+        </article>
+        <button id="recargarPerros" onclick="loadRandomDogs()">Recargar Firulais</button>
+    </section>
+
+    <section id="uploadingDog">
+        <h2>Sube la foto de tu Firulais</h2>
+        <form id="uploadForm">
+            <input id="file" type="file" name="file">
+            <button type="button" onclick="uploadDogPhoto()">Subir Foto Firulais</button>
+        </form> 
+    </section>
+
+    <section id="favoritesDogs">
+
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./apiTheDog.js"></script>
+</body>
+</html>

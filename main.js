@@ -1,6 +1,7 @@
 const API = axios.create({
     baseURL: 'https://api.thecatapi.com/v1',
-    headers: {'X-API-KEY': 'live_2ubfKsH68fwLGlJAgC9uj4T8nKvF7Q4WXZdxrNPUmEKhgrVOeSFxyQ4e6ETwnI32'}
+    headers: {  'X-API-KEY': 'live_2ubfKsH68fwLGlJAgC9uj4T8nKvF7Q4WXZdxrNPUmEKhgrVOeSFxyQ4e6ETwnI32'    
+    }
 });
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=4';
 const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
